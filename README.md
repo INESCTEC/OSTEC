@@ -4,14 +4,14 @@
 
 # Documentation
 
-The *Community Market Pool* use case aims to provide **optimal local energy market (LEM) prices** for Renewable Energy
-Communities (REC). To this end, various mechanisms and algorithms are provided for
-calculating these prices. The optimality of the price arrays computed depends on the architecture of the REC, 
-the assets of its members and their energy supply contracts with their suppliers, but it is always measured 
-by its ability to promote internal transactions as opposed to buying or selling energy from traders.
+***OSTEC*** (**O**ptimised **S**cheduling **T**ool for **E**nergy **C**ommunities) is a Python library (package 
+```rec_op_lem_prices```) that computes **optimal local energy market (LEM) prices** for Renewable Energy Communities (REC). 
+To this end, it provides various mechanisms and algorithms for calculating these prices. The optimality of the price 
+arrays computed depends on the architecture of the REC, the assets of its members and their energy supply contracts 
+with their suppliers, but it is always measured by its ability to promote internal transactions as opposed to buying 
+or selling energy from traders.
 
-To that end, the ***OSTEC*** (**O**ptimised **S**cheduling **T**ool for **E**nergy **C**ommunities) library was 
-implemented (Python package ```rec_op_lem_prices```), that provides the user with two sets of functions:
+The library provides the user with two sets of functions:
 - ***optimization_functions***, which include calls to a MILP module for individual and collective optimal management of 
 REC with stationary storage, PV generation and loads (all assets are assumed to be *behind-the-meter*)
 
