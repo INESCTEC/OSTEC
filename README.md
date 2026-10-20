@@ -1,31 +1,17 @@
 <p align="center">
-  <img src="figures/logo_Enershare.png" height="100" alt="Enershare logo">
-  &nbsp;&nbsp;&nbsp;
-  <img src="figures/logo_ENPOWER.png" height="100" alt="ENPOWER logo">
+  <img src="figures/ostec_banner.svg" alt="OSTEC - Optimised Scheduling Tool for Energy Communities" width="800" />
 </p>
-
-```
-  _____   ______  _____    ____                            _    _                 
- |  __ \ |  ____|/ ____|  / __ \                          | |  (_)               
- | |__) || |__  | |      | |  | | _ __    ___  _ __  __ _ | |_  _   ___   _ __   
- |  _  / |  __| | |      | |  | || '_ \  / _ \| '__|/ _` || __|| | / _ \ | '_ \  
- | | \ \ | |____| |____  | |__| || |_) ||  __/| |  | (_| || |_ | || (_) || | | | 
- |_|  \_\|______|\_____|  \____/ | .__/  \___||_|   \__,_| \__||_| \___/ |_| |_| 
-                                 | |                                                                                                       
-                                 |_|
-```
 
 # Documentation
 
 The *Community Market Pool* use case aims to provide **optimal local energy market (LEM) prices** for Renewable Energy
-Communities (REC) under the *Enershare* and *ENPOWER* projects. To this end, various mechanisms and algorithms are provided for
+Communities (REC). To this end, various mechanisms and algorithms are provided for
 calculating these prices. The optimality of the price arrays computed depends on the architecture of the REC, 
 the assets of its members and their energy supply contracts with their suppliers, but it is always measured 
 by its ability to promote internal transactions as opposed to buying or selling energy from traders.
 
-To that end, a library was implemented, named ***rec_op_lem_prices*** 
-(**R**enewable **E**nergy **C**ommunities **Op**eration and **L**ocal **E**nergy **M**arket **Pricing**), 
-that provides the user with two sets of functions:
+To that end, the ***OSTEC*** (**O**ptimised **S**cheduling **T**ool for **E**nergy **C**ommunities) library was 
+implemented (Python package ```rec_op_lem_prices```), that provides the user with two sets of functions:
 - ***optimization_functions***, which include calls to a MILP module for individual and collective optimal management of 
 REC with stationary storage, PV generation and loads (all assets are assumed to be *behind-the-meter*)
 
@@ -91,8 +77,8 @@ forecast data.
 - Stationary batteries are modelled following a simple "bucket" model which is 
 technology-agnostic.
 
-## Flexible loads (ENPOWER)
-Under the *ENPOWER* project, the optimization module was extended to also schedule **behind-the-meter flexible loads**, 
+## Flexible loads
+The optimization module also schedules **behind-the-meter flexible loads**, 
 alongside stationary batteries, as controllable assets of a REC member:
 
 - **Electric water heaters (EWH)**, modelled through a thermal tank model that optimizes the heating schedule while 
@@ -109,7 +95,7 @@ LEM structures), and a new three-stage collective *pool* MILP was also added, en
 curves and flexibility activation for a REC.
 
 ## Main optimization functions overview
-Under ```rec_management_tools.optimization_functions``` the user can find:
+Under ```rec_op_lem_prices.optimization_functions``` the user can find:
 
 
 ```run_pre_individual_milp``` 
@@ -158,7 +144,7 @@ amount to be activated), returning the corresponding schedules
 
 
 ### Main pricing mechanisms functions overview
-Under ```rec_management_tools.pricing_mechanisms_functions``` the user can find:
+Under ```rec_op_lem_prices.pricing_mechanisms_functions``` the user can find:
 
 ```vanilla_mmr```
 - compute a LEM prices' array based on the MMR mechanism; no MILP is solved, the LEM offers are constructed based only 
@@ -258,4 +244,11 @@ install the library by using:
     ```shell
     import rec_op_lem_prices as rolp
     ```
-  All methods listed above will be straightly available.  
+  All methods listed above will be straightly available.
+
+## Acknowledgements
+
+This work was developed within the following projects:
+
+- **ENPOWER**: This project has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement No 101096354.
+- **ENERSHARE**: This project has received funding from the European Union’s Horizon Europe research and innovation programme under grant agreement No 101069831.
